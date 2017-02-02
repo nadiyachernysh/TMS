@@ -1,0 +1,58 @@
+﻿@model TCM.Models.TestCase
+
+@{
+    ViewData["Title"] = "Edit";
+}
+@section scripts {
+    <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+}
+
+<div class="row">
+    <div class="col-md-2">
+
+        @*@Model.Steps.First().Name*@
+        @Model.Name
+        @Model.Preconditions
+
+        @foreach (var item in Model.Steps)
+        {
+            @Html.DisplayFor(modelItem => item.Name)
+            <br />
+            @Html.DisplayFor(modelItem => item.Result)
+            <br />
+        }
+        <a asp-controller="App" asp-action="AddSteps" asp-route-testCaseId="@Model.Id" class="btn btn-success">Add Steps</a>
+    </div>
+
+    <!--<div class="col-md-6 col-md-offset-3">
+        <h2>Add test steps</h2>
+        <form asp-controller="App" asp-action="Edit" method="post">
+            <span asp-validation-summary="ModelOnly"></span>
+            @if (ViewBag.UserMessage != null)
+            {
+                <div>@ViewBag.UserMessage</div>
+
+            }
+            <div class="form-group">
+                <label asp-for="Name">Step</label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-muted"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Result">Expected result</label>
+                <input asp-for="Result" class="form-control" />
+                <span asp-validation-for="Result" class="text-muted"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Order">Order</label>
+                <input asp-for="Order" class="form-control" />
+                <span asp-validation-for="Order" class="text-muted"></span>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-success">Add</button>
+
+            </div>
+        </form>
+    </div>-->
+</div>

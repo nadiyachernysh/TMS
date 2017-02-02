@@ -1,0 +1,61 @@
+﻿@model IEnumerable<TCM.Models.TestCase>
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="row">
+    <div class="col-md-6">
+        <h2>Test Cases</h2>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <td><strong>Name</strong></td>
+                    <td><strong>Created</strong></td>
+                    <td><strong>Details</strong></td>
+                </tr>
+            </thead>
+            <tbody>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.Name</td>
+                        <td>@item.DateCreated.ToString("d")</td>
+                        <td><a asp-controller="App" asp-action="Details" asp-route-testCaseId="@item.Id" class="btn btn-success">Details</a></td>
+
+                    </tr>
+                }
+            </tbody>
+
+        </table>
+            
+    </div>
+
+    <div class="col-md-6">
+        <h2>Add new testcase</h2>
+        <a asp-controller="App" asp-action="Create" class="btn btn-success">Add</a>
+        <!--<p>Insert details below</p>
+        <form asp-controller="App" asp-action="Create" method="post">
+            <span asp-validation-summary="ModelOnly"></span>
+            @if (ViewBag.UserMessage != null)
+            {
+                <div>@ViewBag.UserMessage</div>
+
+            }
+            <div class="form-group">
+                <label asp-for="TestCase.Name">Name</label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-muted"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Preconditions">Preconditions</label>
+                <input asp-for="Preconditions" class="form-control" />
+                <span asp-validation-for="Preconditions" class="text-muted"></span>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-success">Create</button>-->
+
+     </div>
+        
+</div>
+    
