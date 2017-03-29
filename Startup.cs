@@ -40,7 +40,7 @@ namespace TCM
             // Add framework services.
             services.AddSingleton(Configuration);
             services.AddDbContext<TCMContext>();
-            //adding transient object - app is going to create it every time we need it
+            //adding transient object - app is going to create it every time we need it; transient is used if service doesn't have own state; we will get a copy each time.
             services.AddTransient<TCMContextSeedData>();
             //here we will use AddScoped to create it once per request cycle - as arguments, we supply interface and instance of a class we want to use
             services.AddScoped<ITCMRepository, TCMRepository>();
